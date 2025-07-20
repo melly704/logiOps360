@@ -1,7 +1,7 @@
 import pandas as pd
 from utils.db_utils import connect_db
 import os
-
+import csv
 RAW_PATHS = {
     # Commandes
     "Commandes/Data/Customer_Order.csv": "raw_customer_orders",
@@ -31,9 +31,12 @@ def ingest_raw():
     for file_path, table_name in RAW_PATHS.items():  
         try:
             if file_path.endswith(".csv"):
-                df = pd.read_csv(file_path)
+                with open(file_path, 'r', encoding='utf-8') as f:
+                 dialect = csv.Sniffer().sniff(f.read(2048))
+                 f.seek(0)
+                 df = pd.read_csv(f, sep=dialect.delimiter)
             elif file_path.endswith(".xlsx"):
-                df = pd.read_excel(file_path)
+             df = pd.read_excel(file_path)
             else:
                 raise ValueError("Format non pris en charge")
             df.to_sql(table_name, engine, if_exists="replace", index=False)

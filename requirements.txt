@@ -16,3 +16,6 @@ seaborn
 # Pour l'environnement Python propre
 ipykernel
 
+flask
+requests
+

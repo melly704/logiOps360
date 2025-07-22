@@ -38,7 +38,7 @@ with engine.connect() as conn:
     view_exists = result.fetchone() is not None
     
     if view_exists:
-        print("✅ Vue vw_orders_details créée avec succès.")
+        print("Vue vw_orders_details créée avec succès.")
     else:
-        print("❌ La vue vw_orders_details n'a pas été trouvée.")
+        print("La vue vw_orders_details n'a pas été trouvée.")
 

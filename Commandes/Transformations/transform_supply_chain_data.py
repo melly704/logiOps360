@@ -5,8 +5,14 @@ def transform_supply_chain_data(engine) -> pd.DataFrame:
     df_commandes = pd.read_sql(query, engine)
 
     commandes_cols = [
-        "SKU", "Product type", "Availability", "Number of products sold",
-        "Revenue generated", "Order quantities", "Lead times", "Customer demographics"
+        "SKU", "Price", "Availability",
+        "Number of products sold", "Revenue generated",
+        "Customer demographics", "Stock levels", "Lead times",
+        "Order quantities", "Shipping times", "Shipping carriers",
+        "Shipping costs", "Supplier name", "Location", "Lead time",
+        "Production volumes", "Manufacturing lead time",
+        "Manufacturing costs", "Inspection results", "Defect rates",
+        "Transportation modes", "Routes", "Costs"
     ]
 
     df_clean_commandes = df_commandes[commandes_cols].copy()

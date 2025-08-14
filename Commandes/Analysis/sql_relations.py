@@ -16,7 +16,6 @@ CREATE OR REPLACE VIEW vw_orders_details AS
 SELECT
     co.*,
     pw.wave_number,
-    pw.locations,
     pw.operator AS picking_operator,
     p.abccod,
     p.sector

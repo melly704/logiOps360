@@ -1,0 +1,92 @@
+ * Serving Flask app 'flask_server'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.100.32:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 531-352-481
+127.0.0.1 - - [08/Aug/2025 13:23:40] "GET /new_orders HTTP/1.1" 200 -
+Début du pipeline ETL LogiOps360
+Traceback (most recent call last):
+  File "C:\Users\melis\OneDrive\Desktop\logiOps360\pipelines\etl_logiops.py", line 62, in <module>
+    etl_logiops()
+    ~~~~~~~~~~~^^
+  File "C:\Users\melis\OneDrive\Desktop\logiOps360\pipelines\etl_logiops.py", line 49, in etl_logiops
+    fetch_and_store_new_orders()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\melis\OneDrive\Desktop\logiOps360\pipelines\etl_logiops.py", line 28, in fetch_and_store_new_orders
+    new_orders.to_sql("raw_customer_orders", con=engine, if_exists="append", index=False)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\pandas\util\_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\pandas\core\generic.py", line 3087, in to_sql
+    return sql.to_sql(
+           ~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<8 lines>...
+        method=method,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\pandas\io\sql.py", line 841, in to_sql
+    with pandasSQL_builder(con, schema=schema, need_transaction=True) as pandas_sql:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\pandas\io\sql.py", line 906, in pandasSQL_builder
+    return SQLDatabase(con, schema, need_transaction)
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\pandas\io\sql.py", line 1636, in __init__
+    con = self.exit_stack.enter_context(con.connect())
+                                        ~~~~~~~~~~~^^
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\sqlalchemy\engine\base.py", line 3273, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\sqlalchemy\engine\base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\sqlalchemy\engine\base.py", line 3297, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\melis\AppData\Local\anaconda3\envs\logiops\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xe9 in position 103: invalid continuation byte
+Lancement du serveur Flask...
+Lancement du pipeline ETL LogiOps360...
+Arrêt du serveur Flask.
+Processus complet terminé.

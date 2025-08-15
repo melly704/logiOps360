@@ -18,7 +18,7 @@ TRANSFORM_FUNCS = [
 ]
 
 TABLE_NAME_OVERRIDES = {
-    "transform_supply_chain_problem": "clean_supply_chain_logistic_problem_orders"
+    "transform_supply_chain_problem": "clean_supply_chain_problem"
 }
 
 def resolve_callable(dotted_path: str):

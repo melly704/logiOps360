@@ -69,4 +69,9 @@ def transform_supply_chain_problem(engine) -> pd.DataFrame:
                     lambda x: mapped.get(x, x)
                 )
     df_clean_logistics = df_clean_logistics.drop_duplicates()
+     
+    assets = [f"TRUCK_{i}" for i in range(1, 11)]
+    rng = np.random.default_rng()  # génère de l'aléatoire
+    df_clean_logistics["asset_id"] = rng.choice(assets, size=len(df_clean_logistics))
+ 
     return df_clean_logistics

@@ -60,6 +60,7 @@ def transform_support_points(engine) -> pd.DataFrame:
         "norm": "float32",
         "is_valid": "bool",
     }
+<<<<<<< HEAD
     for c, t in type_map.items():
         if c in df_corrected.columns:
             try:
@@ -67,3 +68,15 @@ def transform_support_points(engine) -> pd.DataFrame:
             except Exception:
                 pass
     return df_corrected[["label", "x_coord", "y_coord", "z_coord", "norm"]]
+=======
+    
+    for col, dtype in dtype_mapping.items():
+        df_corrected[col] = df_corrected[col].astype(dtype)
+    
+    # 6. Réorganisation des colonnes
+    final_columns = [
+        'label', 'x_coord', 'y_coord', 'z_coord', 'norm'
+    ]
+    
+    return df_corrected[final_columns]
+>>>>>>> 9a4ff29a128998a49834fb8d91439c4038c41a4c

@@ -16,6 +16,10 @@ TRANSFORM_FUNCS = [
     "Transport.Transformations.transform_transportation_and_logistics.transform_transportation_and_logistics"
 ]
 
+TABLE_NAME_OVERRIDES = {
+    "transform_supply_chain_problem": "clean_supply_chain_logistic_problem_transport"
+}
+
 def resolve_callable(dotted_path: str):
     module_path, func_name = dotted_path.rsplit(".", 1)
     module = importlib.import_module(module_path)
@@ -23,12 +27,11 @@ def resolve_callable(dotted_path: str):
 
 def main():
     print(">>> MAIN TRANSPORT LANCÉ")
-
     engine = connect_db()
     for dotted_path in TRANSFORM_FUNCS:
         transform_fn = resolve_callable(dotted_path)
-        table_suffix = transform_fn.__name__.replace("transform_", "")
-        table_name = f"clean_{table_suffix}"
+        fn_name = transform_fn.__name__
+        table_name = TABLE_NAME_OVERRIDES.get(fn_name, f"clean_{fn_name.replace('transform_', '')}")
         try:
             df = transform_fn(engine)
             df.to_sql(table_name, engine, if_exists="replace", index=False)

@@ -99,8 +99,7 @@ def transform_support_points(engine) -> pd.DataFrame:
     
     # 6. Réorganisation des colonnes
     final_columns = [
-        'label', 'x_coord', 'y_coord', 'z_coord', 'norm', 'is_valid',
-        'original_label', 'original_points', 'corrections_applied'
+        'label', 'x_coord', 'y_coord', 'z_coord', 'norm'
     ]
     
     return df_corrected[final_columns]

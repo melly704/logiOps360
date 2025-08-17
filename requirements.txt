@@ -18,4 +18,4 @@ ipykernel
 
 flask
 requests
-
+statsmodels

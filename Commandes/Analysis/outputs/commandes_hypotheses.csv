@@ -1,0 +1,2 @@
+H7_N_obs,H7_MAE_RF,H7_MAE_Naive,H7_WAPE_RF,H7_WAPE_Naive,H7_Amélioration_MAE_%,H7_Amélioration_WAPE_%,H7_Wilcoxon_stat,H7_Wilcoxon_p,H7_Décision,H8_N_SKU,H8_part_top20%,H8_seuil_attendu_%,H8_Décision
+0,,,,,,,,,Non évaluable (pas de recouvrement des semaines),372,88.88,80.0,Validée

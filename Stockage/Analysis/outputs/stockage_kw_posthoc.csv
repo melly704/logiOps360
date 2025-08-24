@@ -1,0 +1,7 @@
+type_a,type_b,mw_stat,p_raw,p_adj,kw_stat_global,kw_p_global
+class_based,dedicated,815756832.0,1.0,1.0,0.0,1.0
+class_based,random,815756832.0,1.0,1.0,0.0,1.0
+class_based,hybrid,815756832.0,1.0,1.0,0.0,1.0
+dedicated,random,815756832.0,1.0,1.0,0.0,1.0
+dedicated,hybrid,815756832.0,1.0,1.0,0.0,1.0
+random,hybrid,815756832.0,1.0,1.0,0.0,1.0
